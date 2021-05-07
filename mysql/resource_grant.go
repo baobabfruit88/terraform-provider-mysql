@@ -6,6 +6,7 @@ import (
 	"log"
 	"regexp"
 	"strings"
+	"time"
 
 	"github.com/hashicorp/go-version"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
@@ -227,6 +228,8 @@ func CreateGrant(d *schema.ResourceData, meta interface{}) error {
 	}
 
 	d.SetId(id)
+
+	time.Sleep(3 * time.Second)
 
 	return ReadGrant(d, meta)
 }
